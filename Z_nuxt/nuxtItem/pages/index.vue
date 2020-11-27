@@ -7,27 +7,26 @@
 
     <h4>跨域资源</h4>
     <div>{{ msg }}</div>
-
   </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    //异步请求 组件渲染前，添加的模块$开头
-    let res = await $axios({ url: "/data/list.json" });
-    console.log("读取到的静态资源", res.data);
+  // async asyncData({ $axios }) {
+  //   //异步请求 组件渲染前，添加的模块$开头
+  //   let res = await $axios({ url: "/data/list.json" });
+  //   console.log("读取到的静态资源", res.data);
 
-    //跨域处理
-    let res2 = await $axios({ url: '/index_veriety/?fid=3' });
-    console.log("读取到的跨域资源", res2.data);
+  //   //跨域处理
+  //   let res2 = await $axios({ url: '/index_veriety/?fid=3' });
+  //   console.log("读取到的跨域资源", res2.data);
 
-    return {
-      //与页面合并
-      title: res.data.title,
-      msg:res2.data.proList
-    };
-  },
+  //   return {
+  //     //与页面合并
+  //     title: res.data.title,
+  //     msg:res2.data.proList
+  //   };
+  // },
 
   async fetch({ $axios }) {
     //添加到vuex store
@@ -35,9 +34,8 @@ export default {
     // console.log('res',res.data.title)
   },
 
-  components: {},
+  components: {}
 };
 </script>
 
-<style>
-</style>
+<style></style>
