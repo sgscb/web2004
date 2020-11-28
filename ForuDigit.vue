@@ -16,6 +16,12 @@
         {{ elem }}
       </li>
     </ul>
+    <div class="button">
+      <BottomConfirm
+        @resetFilters="resetFilters"
+        @confirmFilters="confirmFilters"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -25,11 +31,13 @@ import {
   WorkTabFilter,
   WorkTabFilterItem,
 } from '@chipspc/vant-dgg'
+import BottomConfirm from '../common/filters/BottomConfirm'
 export default {
   name: 'BeforFoure',
   components: {
     [WorkTabFilter.name]: WorkTabFilter,
     [WorkTabFilterItem.name]: WorkTabFilterItem,
+    BottomConfirm,
   },
   props: {
     child: {
@@ -49,6 +57,12 @@ export default {
         console.log(222)
       }
     },
+    resetFilters() {
+      alert('重置')
+    },
+    confirmFilters() {
+      alert('确定')
+    },
   },
 }
 </script>
@@ -59,6 +73,7 @@ export default {
   .item-list {
     display: flex;
     flex-wrap: wrap;
+    padding-left: 26px;
     li {
       width: 250px;
       background: #f0f4ff;
@@ -69,6 +84,5 @@ export default {
       text-align: center;
     }
   }
-  // 选中的样式
 }
 </style>

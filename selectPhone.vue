@@ -34,7 +34,7 @@
           v-model="value1"
           title-class=""
           :title="dropdownTitle2"
-          >1331
+          ><BeforForu :child="befor_foru2" />
         </sp-dropdown-item>
         <sp-dropdown-item
           v-model="value1"
@@ -84,6 +84,7 @@ export default {
         { text: '销量排序', value: 'c' },
       ],
       befor_foru: ['全部', 'AAA*', 'AAB', 'AAB', 'AAC', 'AAD'],
+      befor_foru2: ['全部', 'AAA*', 'AAB', 'AAB', 'AAC', 'AAD'],
     }
   },
   methods: {
