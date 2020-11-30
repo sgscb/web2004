@@ -1,16 +1,5 @@
 <template>
   <div class="foru-digit">
-    <!-- <sp-work-tab-filter :value="0" @change="handlerItemChange">
-      <sp-work-tab-filter-item class="filter-item"
-        >热门(4)</sp-work-tab-filter-item
-      >
-      <sp-work-tab-filter-item>销量</sp-work-tab-filter-item>
-      <sp-work-tab-filter-item>适应场景</sp-work-tab-filter-item>
-      <sp-work-tab-filter-item>适应场景</sp-work-tab-filter-item>
-      <sp-work-tab-filter-item v-for="(elem, i) of child" :key="i"
-        >适应场景</sp-work-tab-filter-item
-      >
-    </sp-work-tab-filter> -->
     <ul class="item-list" @click="itemChange">
       <li v-for="(elem, i) of child" :key="i">
         {{ elem }}
@@ -35,8 +24,6 @@ import BottomConfirm from '../common/filters/BottomConfirm'
 export default {
   name: 'BeforFoure',
   components: {
-    [WorkTabFilter.name]: WorkTabFilter,
-    [WorkTabFilterItem.name]: WorkTabFilterItem,
     BottomConfirm,
   },
   props: {
