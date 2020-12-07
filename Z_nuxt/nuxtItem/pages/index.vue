@@ -12,6 +12,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      title: "123",
+      msg: "132"
+    };
+  },
   // async asyncData({ $axios }) {
   //   //异步请求 组件渲染前，添加的模块$开头
   //   let res = await $axios({ url: "/data/list.json" });
@@ -29,9 +35,9 @@ export default {
   // },
 
   async fetch({ $axios }) {
-    //添加到vuex store
-    // let res = await $axios({url:'/data/list.json'})
-    // console.log('res',res.data.title)
+    // 添加到vuex store
+    let res = await $axios({ url: "/data/list.json" });
+    console.log("res", res.data.title);
   },
 
   components: {}
