@@ -36,8 +36,8 @@ export default {
 
   async fetch({ $axios }) {
     // 添加到vuex store
-    // let res = await $axios({ url: "/data/list.json" });
-    // console.log("res", res.data.title);
+    let res = await $axios({ url: "/data/list.json" });
+    console.log("res", res.data.title);
   },
 
   components: {}
