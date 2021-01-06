@@ -34,10 +34,10 @@ export default {
   plugins: [
     "~/plugins/router",
     { src: "~/plugins/vant", ssr: true },
-    {
-      src: "~/plugins/axios",
-      ssrc: true //服务端
-    }
+    {src: "~/plugins/axios",ssr: true },//服务端
+    // 埋点配置问件
+    { src: '@/plugins/sp-md-jdk', ssr: false },
+    { src: '@/plugins/sp-md-directive', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
