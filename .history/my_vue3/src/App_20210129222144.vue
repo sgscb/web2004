@@ -7,12 +7,10 @@
       <li v-for="number in numbers" :key="number">{{ number }}</li>
     </ul>
     <h1>{{ person.name }}</h1>
+
     <h1>{{ greetings }}</h1>
     <button @click="increase">赞 + 1</button><br />
     <button @click="updateGreeting">watch</button>
-    <p>
-      <span>x:{{ x }}-y:{{ y }}</span>
-    </p>
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
@@ -29,7 +27,6 @@ import {
   onRenderTriggered,
 } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
-import useMounsePosition from "./hooks/useMousePosition";
 interface DataProps {
   count: number;
   double: number;
@@ -43,26 +40,6 @@ export default {
     HelloWorld,
   },
   setup() {
-    // 模块化难度上升 //** */
-
-    // 鼠标追踪
-    const { x, y } = useMounsePosition(); // **替换reactive
-    // const x = ref(0);
-    // const y = ref(0);
-    // const updateMouse = (e: MouseEvent) => {
-    //   x.value = e.pageX;
-    //   y.value = e.pageY;
-    // };
-    // onMounted(() => {
-    //   document.addEventListener("click", updateMouse);
-    // });
-    // onUnmounted(() => {
-    //   document.removeEventListener("click", updateMouse);
-    // });
-
-    // @watch
-
-    // @生命周期
     onMounted(() => {
       console.log("mounted");
     });
@@ -72,8 +49,6 @@ export default {
     onRenderTriggered((event) => {
       console.log(event);
     });
-
-    // @ref 和 reactive
     // const count = ref(0);
     // const increase = () => {
     //   count.value++;
@@ -108,8 +83,6 @@ export default {
       ...refData,
       greetings,
       updateGreeting,
-      x,
-      y,
     };
   },
 };

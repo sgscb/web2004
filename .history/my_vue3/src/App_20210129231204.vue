@@ -43,7 +43,7 @@ export default {
     HelloWorld,
   },
   setup() {
-    // 模块化难度上升 //** */
+    // 模块化难度上升
 
     // 鼠标追踪
     const { x, y } = useMounsePosition(); // **替换reactive

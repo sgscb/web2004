@@ -27,6 +27,7 @@ import {
   onMounted,
   onUpdated,
   onRenderTriggered,
+  onUnmounted,
 } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import useMounsePosition from "./hooks/useMousePosition";
@@ -43,10 +44,7 @@ export default {
     HelloWorld,
   },
   setup() {
-    // 模块化难度上升 //** */
-
     // 鼠标追踪
-    const { x, y } = useMounsePosition(); // **替换reactive
     // const x = ref(0);
     // const y = ref(0);
     // const updateMouse = (e: MouseEvent) => {
