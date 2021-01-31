@@ -17,6 +17,7 @@ function useMounsePosition() {
     y: 0
   })
   const updateMouse = (e: MouseEvent) => {
+    console.log(e)
     data.x = e.clientX
     data.y = e.clientY
   }

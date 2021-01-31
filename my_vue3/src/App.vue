@@ -17,9 +17,10 @@
 
     <!-- 请求照片 -->
     <h1 v-if="loading">loading!...</h1>
+    <Modal />
     <img v-if="loadedDog" :src="resultDog.message" alt="" />
     <img v-if="loaded" :src="result[0].url" alt="" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <defineComponent msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
 
@@ -34,7 +35,10 @@ import {
   onUpdated,
   onRenderTriggered,
 } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+// @defineComponent
+import defineComponent from "./components/defineComponent.vue";
+import Modal from "./components/Modal.vue";
+
 import useMounsePosition from "./hooks/useMousePosition";
 import useURLLoader from "./hooks/useURLLoader";
 interface DataProps {
@@ -57,10 +61,13 @@ interface CatResult {
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    defineComponent,
+    Modal,
   },
   setup() {
-    // 模块化难度上升 使用请求的照片
+    //
+
+    // @模块化难度上升 使用请求的照片
     // "https://dog.ceo/api/breeds/image/random"
     const { result, loading, loaded } = useURLLoader<CatResult[]>(
       "https://api.thecatapi.com/v1/images/search?limit=1"
@@ -69,21 +76,16 @@ export default {
       result: resultDog,
       loading: loadingDog,
       loaded: loadedDog,
-    } = useURLLoader<DogResult[]>("https://dog.ceo/api/breeds/image/random"); // ?--DogResult[]
+    } = useURLLoader<DogResult>("https://dog.ceo/api/breeds/image/random"); // ?--DogResult[]
 
     watch(resultDog, () => {
       if (resultDog.value) {
-        console.log("value", resultDog.value);
+        console.log("value", resultDog.value.message);
       }
     });
-    // 鼠标追踪
+
+    // @鼠标追踪
     const { x, y } = useMounsePosition(); // **替换reactive
-    // const x = ref(0);
-    // const y = ref(0);
-    // const updateMouse = (e: MouseEvent) => {
-    //   x.value = e.pageX;
-    //   y.value = e.pageY;
-    // };
     // onMounted(() => {
     //   document.addEventListener("click", updateMouse);
     // });
@@ -93,7 +95,7 @@ export default {
 
     // @watch
 
-    // @生命周期
+    // @生命周期 watch
     // onMounted(() => {
     //   console.log("mounted");
     // });
@@ -146,17 +148,13 @@ export default {
       document.title = "updated" + data.count;
     });
     console.log(data.count);
-    // 使用 getter 的写法 watch reactive 对象中的一项 ?--
-    watch(
-      () => data,
-      (newValue, oldValue) => {
-        console.log(11111111111111111);
-        // console.log("old", oldValue);
-        // console.log("new", newValue);
-        // document.title = "updated" + greetings.value + data.count;
-      },
-      { deep: true }
-    );
+    // 使用 getter 的写法 watch reactive 对象中的一项
+    watch([greetings, () => data.count], (newValue, oldValue) => {
+      console.log("old", oldValue);
+      console.log("new", newValue);
+      document.title = "updated" + greetings.value + data.count;
+    });
+    // { deep: true }
     return {
       ...refData,
       greetings,
