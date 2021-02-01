@@ -8,6 +8,20 @@
     </ul>
     <h1>{{ person.name }}</h1>
     <h1>{{ greetings }}</h1>
+    <!-- 异步请求好帮手第一部分 -->
+    <p>{{ error }}</p>
+    <Suspense>
+      <template #default>
+        <div><AsyncShow /><DogShow /></div>
+      </template>
+      <template #fallback>
+        <h1>loading ! ...</h1>
+      </template>
+    </Suspense>
+    <hr />
+    <!-- 位移 -->
+    <button @click="openModal">Open Modal</button>
+    <modal :isOpen="modalIsOpen" @close-modal="onMOdalClose">My Modal</modal>
 
     <button @click="increase">赞 + 1</button><br />
     <button @click="updateGreeting">watch</button>
@@ -31,6 +45,7 @@ import {
   reactive,
   toRefs,
   watch,
+  onErrorCaptured,
   onMounted,
   onUpdated,
   onRenderTriggered,
@@ -38,6 +53,8 @@ import {
 // @defineComponent
 import defineComponent from "./components/defineComponent.vue";
 import Modal from "./components/Modal.vue";
+import AsyncShow from "./components/AsyncShow.vue";
+import DogShow from "./components/DogShow.vue";
 
 import useMounsePosition from "./hooks/useMousePosition";
 import useURLLoader from "./hooks/useURLLoader";
@@ -63,9 +80,17 @@ export default {
   components: {
     defineComponent,
     Modal,
+    AsyncShow,
+    DogShow,
   },
   setup() {
-    //
+    // 异步请求捕捉错误
+    const error = ref(null);
+    onErrorCaptured((err: any) => {
+      console.log("err");
+      error.value = err;
+      return true; // 表示是否向上传
+    });
 
     // @模块化难度上升 使用请求的照片
     // "https://dog.ceo/api/breeds/image/random"
@@ -155,6 +180,14 @@ export default {
       document.title = "updated" + greetings.value + data.count;
     });
     // { deep: true }
+    // 瞬移第二部分
+    const modalIsOpen = ref(false);
+    const openModal = () => {
+      modalIsOpen.value = true;
+    };
+    const onMOdalClose = () => {
+      modalIsOpen.value = false;
+    };
     return {
       ...refData,
       greetings,
@@ -167,6 +200,10 @@ export default {
       resultDog,
       loadedDog,
       loadingDog,
+      modalIsOpen,
+      openModal,
+      onMOdalClose,
+      error,
     };
   },
 };

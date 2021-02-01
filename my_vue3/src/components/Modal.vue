@@ -1,8 +1,9 @@
 <template>
   <!-- @瞬移 vue3 新添加了一个默认的组件就叫 Teleport，我们可以拿过来直接使用，它上面有一个 to 的属性，它接受一个css query selector 作为参数，这就是代表要把这个组件渲染到哪个 dom 元素中 -->
   <teleport to="#modal">
-    <div id="center">
-      <h1>this is a modal</h1>
+    <div id="center" v-if="isOpen">
+      <h1><slot> this is a modal</slot></h1>
+      <button @click="buttonClick">Close</button>
     </div>
   </teleport>
 </template>
@@ -13,6 +14,7 @@ export default defineComponent({
     isOpen: Boolean,
   },
   emits: {
+    //写任何可能遇到事件的名称
     // "close-modal": (playload: any) => {
     //   return playload.type === "close";
     // },
@@ -20,9 +22,12 @@ export default defineComponent({
   },
   setup(props, context) {
     // context.emit("close-modal", {
-    //   type: "close",
+    //   type: "hello", // event arguments: event validation failed for event "close-modal
     // });
-    context.emit("close-modal");
+    const buttonClick = () => {
+      context.emit("close-modal");
+    };
+    return { buttonClick };
   },
 });
 </script>
