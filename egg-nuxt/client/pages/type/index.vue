@@ -14,14 +14,14 @@
     <!-- 内容 -->
     <div class="content">
       <div class="left-content">
-        <sp-sidebar v-model="active">
-          <sp-sidebar-item
+        <van-sidebar v-model="active">
+          <van-sidebar-item
             v-for="(item, index) of typeData"
             :key="index"
             :title="item.title"
             @click="changeNum"
           />
-        </sp-sidebar>
+        </van-sidebar>
       </div>
       <div class="right-content">
         <div class="right-img-box">
@@ -61,7 +61,7 @@
   </div>
 </template>
 <script>
-import { Sidebar, SidebarItem } from '@chipspc/vant-dgg'
+import { Sidebar, SidebarItem } from 'vant'
 import SideContent from '~/components/type/SideContent.vue'
 import SidecontentItem from '~/components/type/SidecontentItem.vue'
 import TabBar from '~/components/Index/Tabbar.vue'
@@ -265,14 +265,14 @@ export default {
     }
   }
 }
-/deep/ .sp-sidebar {
+/deep/ .van-sidebar {
   width: 100px;
   height: 100%;
   background-color: #f0f2f5;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-/deep/ .sp-sidebar-item {
+/deep/ .van-sidebar-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,7 +283,7 @@ export default {
   color: #565656;
   background-color: #f0f2f5;
 }
-/deep/ .sp-sidebar-item--select {
+/deep/ .van-sidebar-item--select {
   font-size: 0.3rem;
   font-weight: 700;
   color: #252525;

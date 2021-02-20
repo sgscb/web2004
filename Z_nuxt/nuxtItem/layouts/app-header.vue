@@ -6,10 +6,11 @@
     <nuxt-link to="/user" active-class="app_header--active">用户</nuxt-link>
     <nuxt-link to="/login" active-class="app_header--active">登录</nuxt-link>
     <nuxt-link to="/reg" active-class="app_header--active">注册</nuxt-link>
+    <div>123</div>
   </nav>
 </template>
-<style scoped>
-.app_header--active{
+<style lang="less" scoped>
+.app_header--active {
   background: #399;
   color: #fff;
 }
