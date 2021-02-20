@@ -241,25 +241,26 @@ export default {
             line-height: 1;
           }
         }
-      }
-      .scroll-content {
-        display: flex;
-        flex-wrap: wrap;
-        width: calc(100% + 0.16rem);
-        list-style: none;
-        margin-left: -0.16rem;
-        &-item > a {
+
+        .scroll-content {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 0.64rem;
-          font-size: 0.26rem;
-          color: #666;
-          margin-left: 0.16rem;
-          margin-top: 0.24rem;
-          padding: 0 0.24rem;
-          background: #f5f7fa;
-          border-radius: 0.32rem;
+          flex-wrap: wrap;
+          width: calc(100% + 0.16rem);
+          list-style: none;
+          margin-left: -0.16rem;
+          &-item > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 0.64rem;
+            font-size: 0.26rem;
+            color: #666;
+            margin-left: 0.16rem;
+            margin-top: 0.24rem;
+            padding: 0 0.24rem;
+            background: #f5f7fa;
+            border-radius: 0.32rem;
+          }
         }
       }
     }
