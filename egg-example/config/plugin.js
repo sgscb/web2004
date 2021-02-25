@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /** @type Egg.EggPlugin */
 module.exports = {
@@ -6,8 +6,8 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
-  //  nunjucks = {
-  //   enable: true,
-  //   package: "egg-view-nunjucks",
-  // }
+  nunjucks: {
+    enable: true,
+    package: 'egg-view-nunjucks',
+  },
 };

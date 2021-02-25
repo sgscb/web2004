@@ -5,6 +5,7 @@
     <form action="">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">邮箱地址</label>
+        <ValidateInput />
         <input
           type="text"
           class="form-control"
@@ -34,6 +35,7 @@ import { defineComponent, reactive } from 'vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ColumnList, { ColumnProps } from './components/ColumnList.vue';
 import GlobalHeader from './components/ClobaHeader.vue';
+import ValidateInput from './components/ValidateInput.vue';
 const testData: ColumnProps[] = [
   {
     id: 1,
@@ -68,7 +70,8 @@ export default defineComponent({
   name: 'App',
   components: {
     // ColumnList,
-    GlobalHeader
+    GlobalHeader,
+    ValidateInput
   },
   setup() {
     const emailRef = reactive({
