@@ -35,7 +35,7 @@ import { defineComponent, reactive } from 'vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ColumnList, { ColumnProps } from './components/ColumnList.vue';
 import GlobalHeader from './components/ClobaHeader.vue';
-import ValidateInput from './components/ValidateInput.vue';
+// import ValidateInput from './components/ValidateInput.vue';
 const testData: ColumnProps[] = [
   {
     id: 1,
@@ -70,8 +70,8 @@ export default defineComponent({
   name: 'App',
   components: {
     // ColumnList,
-    GlobalHeader,
-    ValidateInput
+    GlobalHeader
+    // ValidateInput
   },
   setup() {
     const emailRef = reactive({

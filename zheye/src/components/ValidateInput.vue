@@ -1,4 +1,3 @@
-<
 <template>
   <div class="validate-input-container pb-3">
     <input
