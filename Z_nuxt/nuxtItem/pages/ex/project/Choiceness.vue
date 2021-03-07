@@ -2,7 +2,7 @@
   <div class="choiceness">
     <!-- 免费体验 -->
     <div class="choiceness-item">
-      <p class="title">{{ content.title || '免费体验' }}</p>
+      <p class="title">{{ content.title || "免费体验" }}</p>
       <div class="choiceness-content">
         <div
           v-for="(contents, proKey) of content.experience.imgVal"
@@ -20,7 +20,7 @@
     <!-- 薯片课程 -->
     <div class="choiceness-item">
       <p class="title">
-        {{ content.title || '薯片课程' }}
+        {{ content.title || "薯片课程" }}
         <span class="title-label">
           <span class="title-name">精选</span>
           <span class="title-icon">
@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import { Toast } from '@chipspc/vant-dgg'
+import { Toast } from "vant";
 export default {
-  name: 'Choiceness',
+  name: "Choiceness",
   components: {
-    [Toast.name]: Toast,
+    [Toast.name]: Toast
   },
   props: {
     content: {
@@ -61,40 +61,40 @@ export default {
       default: () => {
         return {
           experience: {
-            title: '免费体验',
+            title: "免费体验",
             imgVal: [
               {
                 img:
-                  'https://cdn.shupian.cn/sp-pt/wap/images/efrhylhffbs0000.png',
-                imgNmae: '商标查询',
+                  "https://cdn.shupian.cn/sp-pt/wap/images/efrhylhffbs0000.png",
+                imgNmae: "商标查询"
               },
               {
                 img:
-                  'https://cdn.shupian.cn/sp-pt/wap/images/8jn8qjulfvs0000.png',
-                imgNmae: '版权服务',
-              },
-            ],
+                  "https://cdn.shupian.cn/sp-pt/wap/images/8jn8qjulfvs0000.png",
+                imgNmae: "版权服务"
+              }
+            ]
           },
           curriculum: {
-            title: '薯片课程',
+            title: "薯片课程",
             imgVal: [
               {
                 img:
-                  'https://cdn.shupian.cn/sp-pt/wap/images/efrhylhffbs0000.png',
-                imgNmae: '商标案件如...',
+                  "https://cdn.shupian.cn/sp-pt/wap/images/efrhylhffbs0000.png",
+                imgNmae: "商标案件如..."
               },
               {
                 img:
-                  'https://cdn.shupian.cn/sp-pt/wap/images/8jn8qjulfvs0000.png',
-                imgNmae: '高企认定政...',
-              },
-            ],
-          },
-        }
-      },
-    },
-  },
-}
+                  "https://cdn.shupian.cn/sp-pt/wap/images/8jn8qjulfvs0000.png",
+                imgNmae: "高企认定政..."
+              }
+            ]
+          }
+        };
+      }
+    }
+  }
+};
 </script>
 
 <style lang="less">
