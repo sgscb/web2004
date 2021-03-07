@@ -49,14 +49,19 @@ export default {
   },
   directives: {
     myFocus: {
-      // 指令的定义
       inserted(el) {
         let inputDom = el;
         if (el.tagName !== "INPUT") {
           inputDom = el.querySelector("input");
         }
-        inputDom && inputDom.focus();
-        console.log(el.querySelector("input").tagName === "INPUT");
+        inputDom.tagName === "INPUT" && inputDom.focus();
+      },
+      update(el) {
+        let inputDom = el;
+        if (el.tagName !== "INPUT") {
+          inputDom = el.querySelector("input");
+        }
+        inputDom.tagName === "INPUT" && inputDom.focus();
       }
     }
   },

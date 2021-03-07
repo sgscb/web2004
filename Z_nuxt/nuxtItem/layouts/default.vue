@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!-- 跳转 声明式跳转 router-link    一级路由-->
     <app-header></app-header>
     <!-- 展示区  ~~ router-view -->
@@ -8,11 +7,12 @@
   </div>
 </template>
 <script>
-import AppHeader from './app-header'
+import AppHeader from "./app-header";
 export default {
   // middleware:'auth',//页面层级中间件定义
-  middleware({store,router,redirect,params,query}){//页面内部
-     //context 服务器上下文
+  middleware({ store, router, redirect, params, query }) {
+    //页面内部
+    //context 服务器上下文
     //局部前置业务
     //store 状态数信息
     //route 一条目标路由信息
@@ -23,9 +23,7 @@ export default {
     // console.log('middleware layouts')
     // console.log(context)
   },
-  components:{AppHeader}
-}
-</script>scrip
-<style>
-
-</style>
+  components: { AppHeader }
+};
+</script>
+<style></style>

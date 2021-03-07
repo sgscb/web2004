@@ -22,56 +22,56 @@ export default {
     titleName: {
       type: String,
       default: () => {
-        return '你的身份？'
-      },
+        return "你的身份？";
+      }
     },
     selectList: {
       type: Array,
       default: () => {
         return [
           {
-            name: '经办人',
+            name: "经办人"
           },
           {
-            name: '法人',
+            name: "法人"
           },
           {
-            name: '股东',
-          },
-        ]
-      },
-    },
+            name: "股东"
+          }
+        ];
+      }
+    }
   },
   mounted() {
-      const param = {
-        platform_type: 'H5', // 平台类型：App，H5，Web
-        app_name: '薯片wap端', // 应用名称
-        product_line: '免费帮找页',
-        current_url: location.href,
-        referrer: document.referrer,
-      }
-      window.sensors.registerPage(param) // 设置公共属性
-    },
+    const param = {
+      platform_type: "H5", // 平台类型：App，H5，Web
+      app_name: "薯片wap端", // 应用名称
+      product_line: "免费帮找页",
+      current_url: location.href,
+      referrer: document.referrer
+    };
+    window.sensors.registerPage(param); // 设置公共属性
+  },
   data() {
     return {
       // 埋点双向
-      mdData:{name:'轻松找服务_城市'},
+      mdData: { name: "轻松找服务_城市" },
       show: false,
-      title: '注册类型',
-      selectActive: 0,
-    }
+      title: "注册类型",
+      selectActive: 0
+    };
   },
   methods: {
     showPopup() {
-      this.show = true
+      this.show = true;
     },
     // 选择的内容
     onSelectActive(item, index) {
-      this.selectActive = index
-      this.$emit('onSelectActive', item)
-    },
-  },
-}
+      this.selectActive = index;
+      this.$emit("onSelectActive", item);
+    }
+  }
+};
 </script>
 <style lang="less" scoped>
 .select-desired {

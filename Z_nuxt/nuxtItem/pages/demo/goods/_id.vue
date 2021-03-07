@@ -6,17 +6,17 @@
 
 <script>
 export default {
-  name:'goods-detail',
-  validate({params,query}){
-    console.log(params,query)
-    return typeof params.id === 'number'
+  name: "goods-detail",
+  validate({ params, query }) {
+    console.log(params, query);
+    return typeof params.id === "number";
   },
   // transition:'动画名'
-  transition:'test'
-}
+  transition: "test"
+};
 </script>
 <style scoped>
-  /* .test-enter-active, .test-leave-active{
+/* .test-enter-active, .test-leave-active{
     transition: .5s ease all;
   }
   .test-enter, .test-leave-active{

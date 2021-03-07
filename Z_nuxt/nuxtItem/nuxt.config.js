@@ -28,16 +28,21 @@ export default {
     }
   },
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ["assets/css/transition.css", "vant/lib/index.css"],
+  css: [
+    "assets/css/transition.css",
+    "vant/lib/index.css",
+    "@/assets/icons/iconfont.css"
+    // "vant/lib/icon/local.css"
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     "~/plugins/router",
     { src: "~/plugins/vant", ssr: true },
-    {src: "~/plugins/axios",ssr: true },//服务端
+    { src: "~/plugins/axios", ssr: true }, // ssr: Boolean (默认为 true) 如果值为 false，该文件只会在客户端被打包引入
     // 埋点配置问件
-    { src: '@/plugins/sp-md-jdk', ssr: false },
-    { src: '@/plugins/sp-md-directive', ssr: false },
+    { src: "@/plugins/sp-md-jdk", ssr: false },
+    { src: "@/plugins/sp-md-directive", ssr: false }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
