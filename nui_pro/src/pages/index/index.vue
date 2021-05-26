@@ -67,16 +67,21 @@ export default {
   },
 };
 </script>
-
-<style>
-.ni-media-list-body {
-  height: auto;
-}
-.uni-media-list-text-top {
-  line-height: 34rpx;
-  height: 34rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+<style lang="less" scoped>
+::v-deep.content {
+  .uni-media-list {
+    .uni-media-list-body {
+      height: auto;
+      .uni-media-list-text-top {
+        display: inline-block;
+        width: 280px;
+        line-height: 34rpx;
+        height: 34rpx;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 }
 </style>
