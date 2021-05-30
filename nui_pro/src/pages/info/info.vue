@@ -1,5 +1,6 @@
 <template>
   <view class="content">
+    <view class="btn"><button @click="back" type="primary">返回</button></view>
     <view class="title">{{ title }}</view>
     <view class="content-art">
       <rich-text class="richText" :nodes="strings"></rich-text>
@@ -29,21 +30,25 @@ export default {
       complete: () => {},
     });
   },
+  methods: {
+    back() {
+      uni.navigateBack();
+    },
+  },
 };
 </script>
-
-<style>
+<style lang="less" scoped>
 .content {
   padding: 10upx 2%;
   width: 96%;
   flex-wrap: wrap;
-}
-.title {
-  line-height: 2em;
-  font-weight: 700;
-  font-size: 38upx;
-}
-.content-art {
-  line-height: 2em;
+  .title {
+    line-height: 2em;
+    font-weight: 700;
+    font-size: 38upx;
+  }
+  .content-art {
+    line-height: 2em;
+  }
 }
 </style>

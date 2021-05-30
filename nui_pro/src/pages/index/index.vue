@@ -35,6 +35,16 @@ export default {
       title: "加载中......",
       mask: false,
     });
+    // uni
+    //   .request({
+    //     url: "https://unidemo.dcloud.net.cn/api/news", //仅为示例，并非真实接口地址。
+    //   })
+    //   .then((res) => {
+    //     if (res.statusCode !== 200) return;
+    //     this.news = res.data;
+    //     console.log(this.news);
+    //     uni.hideLoading();
+    //   });
     uni.request({
       url: "https://unidemo.dcloud.net.cn/api/news",
       method: "GET",
@@ -45,8 +55,12 @@ export default {
         console.log(this.news);
         uni.hideLoading();
       },
-      fail: () => {},
-      complete: () => {},
+      fail: (fail) => {
+        console.log(fail);
+      },
+      complete: (err) => {
+        console.log(err);
+      },
     });
   },
   methods: {
@@ -67,16 +81,21 @@ export default {
   },
 };
 </script>
-
-<style>
-.ni-media-list-body {
-  height: auto;
-}
-.uni-media-list-text-top {
-  line-height: 34rpx;
-  height: 34rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+<style lang="less" scoped>
+::v-deep.content {
+  .uni-media-list {
+    .uni-media-list-body {
+      height: auto;
+      .uni-media-list-text-top {
+        display: inline-block;
+        width: 280px;
+        line-height: 34rpx;
+        height: 34rpx;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 }
 </style>

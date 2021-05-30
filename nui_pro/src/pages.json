@@ -2,6 +2,12 @@
 	"pages": [
 		// pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "首页" // 私有导航栏标题
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "uni-app" // 私有导航栏标题
@@ -12,11 +18,18 @@
 			"style": {}
 		}
 	],
+	// "easycom": {
+	// 	"autoscan": true,
+	// 	"custom": {
+	// 		// uni-ui 规则如下配置
+	// 		"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+	// 	}
+	// },
 	"globalStyle": {
 		"navigationBarTextStyle": "black", // 只有black/white
 		"navigationBarTitleText": "新闻列表", // 公有导航栏名称
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#000000"
 		// 待其他属性
 	},
 	"condition": {
@@ -25,12 +38,12 @@
 		"list": [
 			{
 				"name": "swiper", //模式名称
-				"path": "pages/info/info", //启动页面，必选
+				"path": "pages/index/index", //启动页面，必选
 				"query": "newsid=5158607" //启动参数，在页面的onLoad函数里面得到。
 			},
 			{
 				"name": "test",
-				"path": "pages/info/info",
+				"path": "pages/home/index",
 				"query": "newsid=5158607"
 			}
 		]
